@@ -30,9 +30,10 @@ namespace UserDetails.Repository.Services
         {
            
             var result=await _appDbContext.Users.
-                Where(
-                   x=>x.Name.Contains(SearchUserValue)
-                
+                Where
+                (
+                x=>x.Name.Contains(SearchUserValue)
+               
                 || x.Email.Contains(SearchUserValue) 
                 || x.phone.Contains(SearchUserValue) 
                 || x.Address.Contains(SearchUserValue)
