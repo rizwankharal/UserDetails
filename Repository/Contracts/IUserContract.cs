@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using UserDetails.Data.ViewModel;
 using UserDetails.Model;
 
 namespace UserDetails.Repository.Contracts
@@ -8,7 +9,7 @@ namespace UserDetails.Repository.Contracts
     {
         Task<List<User>> GetAllUsers();
         Task<User> GetUserById(int ID);
-
+        int AddUser(UserVM user);
         Task<List<User>> SearchUser(string SearchUserValue);
     }
 }

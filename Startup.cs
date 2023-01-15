@@ -93,7 +93,17 @@ namespace UserDetails
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
 
-           
+
+            services.AddCors(option =>
+            {
+
+                option.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); 
+
+                });
+            });
+
 
             services.AddSwaggerGen(c =>
             {
@@ -121,6 +131,7 @@ namespace UserDetails
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthentication();
 
